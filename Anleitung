@@ -1,0 +1,38 @@
+sudo nano /boot/config.txt
+
+h264_freq=550
+over_voltage=2 
+gpu_mem=256
+disable_splash 1
+
+my .parsec/config.txt is:
+
+app_lan_quality=1
+app_wan_quality=1
+encoder_bitrate=3
+client_vsync=0
+encoder_fps=30
+encoder_min_qp=8
+client_immersive=1
+client_overlay=0
+network_try_lan=1
+client_windowed=0
+#client_window_x=1280
+#client_window_y=720
+client_audio_buffer=26000
+
+
+
+sudo nano /boot/cmdline.txt
+
+usbhid.mousepoll=8
+
+
+sudo apt install openvpn
+sudo systemctl enable openvpn
+sudo nano /etc/default/openvpn
+
+-> all unkommentieren
+
+sudo mv /etc/openvpn/*.ovpn /etc/openvpn/offsite-client.conf
+sudo reboot now
