@@ -15,25 +15,11 @@ sudo sh -c "echo 'client_windowed=0' >> /home/pi/.parsec/config.txt"
 sudo sh -c "echo '#client_window_x=1280' >> /home/pi/.parsec/config.txt"
 sudo sh -c "echo '#client_window_y=720' >> /home/pi/.parsec/config.txt"
 sudo sh -c "echo 'client_audio_buffer=26000' >> /home/pi/.parsec/config.txt"
-
-
-sudo nano /boot/cmdline.txt
-
 sudo sh -c "echo 'usbhid.mousepoll=8' >> /boot/cmdline.txt"
-
-
 sudo apt install openvpn -y
 sudo systemctl enable openvpn
 sudo systemctl enable openvpn@client.service
-
-sudo nano /etc/default/openvpn
-
-AUTOSTART="all"
-
+sudo sh -c "echo 'AUTOSTART=\"all\"' >> /etc/default/openvpn"
 sudo mv /etc/openvpn/*.ovpn /etc/openvpn/offsite-client.conf
-
-
 curl https://raw.githubusercontent.com/virtualhere/script/main/install_server | sudo sh
-
-
 sudo reboot now
