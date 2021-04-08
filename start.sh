@@ -1,3 +1,5 @@
+wget https://s3.amazonaws.com/parsec-build/package/parsec-rpi.deb
+sudo dpkg -i parsec-rpi.deb
 sudo sh -c "echo 'h264_freq=550' >> /boot/config.txt"
 sudo sh -c "echo 'over_voltage=2 ' >> /boot/config.txt"
 sudo sh -c "echo 'gpu_mem=256' >> /boot/config.txt"
